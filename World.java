@@ -1,3 +1,6 @@
+//change made by Advait
+
+
 /******************************************************************************
   *  Compilation:  javac World.java
   *  Execution:    java World
@@ -104,8 +107,11 @@ public class World {
             DonkeyKong donkey = new DonkeyKong(0.15, floors[0].getY() 
                                                    + Floor.getHeight() + 0.04);
             
-            //CHANGE ANIMATION SPEED FPS IF NEEDED
-            PennDraw.enableAnimation(60);
+            //CHANGE ANIMATION SPEED FPS IF NEE
+
+
+            PennDraw.enableAnimation(65);
+
             boolean hasWon = false; //create a boolean to say mario hasn't won
             
             //Begin gameplay loop ********************************************

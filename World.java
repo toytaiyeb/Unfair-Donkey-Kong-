@@ -105,7 +105,7 @@ public class World {
                                                    + Floor.getHeight() + 0.04);
             
             //CHANGE ANIMATION SPEED FPS IF NEEDED
-            PennDraw.enableAnimation(30);
+            PennDraw.enableAnimation(60);
             boolean hasWon = false; //create a boolean to say mario hasn't won
             
             //Begin gameplay loop ********************************************
@@ -145,7 +145,8 @@ public class World {
                 mario.checkPosition();
                 
                 //if mario is above 0.35, use pikachu images
-                if (mario.getY() > 0.35) {
+                if (mario.getY() > 0.35)
+                {
                     if (direction == 1) {
                         mario.pDrawRight(rightDir);
                     } else if (direction == 2) {

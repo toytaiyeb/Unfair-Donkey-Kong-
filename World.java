@@ -110,12 +110,13 @@ public class World {
             //CHANGE ANIMATION SPEED FPS IF NEE
 
 
-            PennDraw.enableAnimation(65);
+            PennDraw.enableAnimation(30);
 
             boolean hasWon = false; //create a boolean to say mario hasn't won
             
             //Begin gameplay loop ********************************************
             while(mario.isAlive() && !hasWon) {
+
                 PennDraw.clear(PennDraw.BLACK);
                 
                 //draw 4 barrels in top corner
@@ -149,10 +150,11 @@ public class World {
                 
                 //make sure mario is in an acceptable position before drawing
                 mario.checkPosition();
-                
+
                 //if mario is above 0.35, use pikachu images
                 if (mario.getY() > 0.35)
                 {
+                    PennDraw.enableAnimation(60);
                     if (direction == 1) {
                         mario.pDrawRight(rightDir);
                     } else if (direction == 2) {
@@ -160,14 +162,27 @@ public class World {
                     } else {
                         mario.pDraw(facing);
                     }
-                } else if (mario.ladderCollision(ladders) && climbing) {
-                    mario.drawClimbing(climb); 
+                }
+                mario.checkPosition();
+                if (mario.getY() > 0.525)
+                {
+                    PennDraw.enableAnimation(90);
+                    if (direction == 1) {
+                        mario.pDrawRight(rightDir);
+                    } else if (direction == 2) {
+                        mario.pDrawLeft(leftDir);
+                    } else {
+                        mario.pDraw(facing);
+                    }
+                }
+                else if (mario.ladderCollision(ladders) && climbing) {
+                    mario.drawClimbing(climb);
                 } else if (direction == 1) {
                     mario.drawRight(rightDir);
                 } else if (direction == 2) {
                     mario.drawLeft(leftDir);
                 } else if (!(mario.floorCollision(floors)) &&
-                           !(mario.ladderCollision(ladders))) {
+                        !(mario.ladderCollision(ladders))) {
                     mario.drawJump(facing);
                 } else {
                     mario.draw(facing);

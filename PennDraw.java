@@ -174,7 +174,7 @@ public final class PennDraw implements ActionListener, MouseListener, MouseMotio
      *
      * @param w the width as a number of pixels
      * @param h the height as a number of pixels
-     * @throws a IllegalArgumentException if the width or height is 0 or negative
+     * @throws IllegalArgumentException if the width or height is 0 or negative
      */
     public static void setCanvasSize(int w, int h) {
         if (w < 1 || h < 1) throw new IllegalArgumentException("width and height must be positive");

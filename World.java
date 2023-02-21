@@ -89,12 +89,23 @@ public class World {
             
             //initialize ladders**********************************************
             Ladder[] ladders = new Ladder[6];
-            ladders[0] = new Ladder(0.45, 0.125);
+            ladders[0] = new Ladder(0.45, 0.125);// Ground
             ladders[1] = new Ladder(0.7, 0.275);
+            ladders[5] = new Ladder(0.24, 0.275);
             ladders[2] = new Ladder(0.3, 0.425);
             ladders[3] = new Ladder(0.6, 0.575);
-            ladders[4] = new Ladder(0.45, 0.725);
-            ladders[5] = new Ladder(0.24, 0.275);
+            ladders[4] = new Ladder(0.45, 0.725);//Top
+
+
+            //Spikes spikes=new Spikes(0.35,0.210);
+            Spikes[] spikes=new Spikes[2];
+            spikes[0]=new Spikes(0.35,0.210);
+            spikes[1]=new Spikes(0.75,0.725);
+
+
+
+
+
             //spike at y=.275, x=between .24 && .45
 
             //ladders**********************************************************
@@ -131,8 +142,11 @@ public class World {
                         floors[i].draw();
                     if (i < ladders.length)
                         ladders[i].draw();
+                    if(i <spikes.length)
+                        spikes[i].draw();
                 }
-                
+
+
                 //draw donkey depending on what frame we are on using timer
                 if (0 <= timer && timer < 145) {
                     donkey.drawOriginal();

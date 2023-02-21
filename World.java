@@ -88,12 +88,15 @@ public class World {
             //floors**********************************************************
             
             //initialize ladders**********************************************
-            Ladder[] ladders = new Ladder[5];
-            ladders[0] = new Ladder(0.4, 0.125);
+            Ladder[] ladders = new Ladder[6];
+            ladders[0] = new Ladder(0.45, 0.125);
             ladders[1] = new Ladder(0.7, 0.275);
             ladders[2] = new Ladder(0.3, 0.425);
             ladders[3] = new Ladder(0.6, 0.575);
             ladders[4] = new Ladder(0.45, 0.725);
+            ladders[5] = new Ladder(0.24, 0.275);
+            //spike at y=.275, x=between .24 && .45
+
             //ladders**********************************************************
             
             //initialize barrel linkedList
@@ -163,18 +166,7 @@ public class World {
                         mario.pDraw(facing);
                     }
                 }
-                mario.checkPosition();
-                if (mario.getY() > 0.525)
-                {
-                    PennDraw.enableAnimation(90);
-                    if (direction == 1) {
-                        mario.pDrawRight(rightDir);
-                    } else if (direction == 2) {
-                        mario.pDrawLeft(leftDir);
-                    } else {
-                        mario.pDraw(facing);
-                    }
-                }
+
                 else if (mario.ladderCollision(ladders) && climbing) {
                     mario.drawClimbing(climb);
                 } else if (direction == 1) {
@@ -186,6 +178,19 @@ public class World {
                     mario.drawJump(facing);
                 } else {
                     mario.draw(facing);
+                }
+
+                mario.checkPosition();
+                if (mario.getY() > 0.525)
+                {
+                    PennDraw.enableAnimation(90);
+                    if (direction == 1) {
+                        mario.pDrawRight(rightDir);
+                    } else if (direction == 2) {
+                        mario.pDrawLeft(leftDir);
+                    } else {
+                        mario.pDraw(facing);
+                    }
                 }
                 
                 if (lightningTimer >= 30) {

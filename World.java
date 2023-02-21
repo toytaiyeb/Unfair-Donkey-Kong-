@@ -1,3 +1,6 @@
+//change made by Advait
+
+
 /******************************************************************************
   *  Compilation:  javac World.java
   *  Execution:    java World
@@ -105,7 +108,7 @@ public class World {
                                                    + Floor.getHeight() + 0.04);
             
             //CHANGE ANIMATION SPEED FPS IF NEEDED
-            PennDraw.enableAnimation(30);
+            PennDraw.enableAnimation(65);
             boolean hasWon = false; //create a boolean to say mario hasn't won
             
             //Begin gameplay loop ********************************************

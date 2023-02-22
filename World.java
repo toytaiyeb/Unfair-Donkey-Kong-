@@ -15,7 +15,7 @@
   *          Max Grove, maxgrove, 205
   *
   ***************************************************************************/
-public class World {
+public class  World {
     public static void main(String[] args) {
 
         //DRAWING THE INSTRUCTIONS **************************************

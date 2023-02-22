@@ -210,7 +210,7 @@ public class  World {
                 //if mario is above 0.35, use pikachu images
                 if (mario.getY() > 0.35)
                 {
-                    PennDraw.enableAnimation(30);
+                    PennDraw.enableAnimation(60);
                     if (direction == 1) {
                         mario.pDrawRight(rightDir);
                     } else if (direction == 2) {
@@ -236,7 +236,7 @@ public class  World {
                 mario.checkPosition();
                 if (mario.getY() > 0.525)
                 {
-                    PennDraw.enableAnimation(30);
+                    PennDraw.enableAnimation(90);
                     if (direction == 1) {
                         mario.pDrawRight(rightDir);
                     } else if (direction == 2) {

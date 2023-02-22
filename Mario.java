@@ -80,10 +80,10 @@ public class Mario {
         x += velX;
     }
     public void moveRightAir() {
-        x += velX*4;
+        x += velX*3;
     }
     public void moveLefttAir() {
-        x -= velX*4;
+        x -= velX*3;
     }
     
     /** Description: decreases mario's x by velX

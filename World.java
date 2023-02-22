@@ -103,9 +103,11 @@ public class World {
 
 
             //Spikes spikes=new Spikes(0.35,0.210);
-            Spikes[] spikes=new Spikes[2];
+            Spikes[] spikes=new Spikes[3];
             spikes[0]=new Spikes(0.35,0.210);
             spikes[1]=new Spikes(0.7,0.66);
+            spikes[2]=new Spikes(0.75,0.725);
+
 
 
 
@@ -163,6 +165,7 @@ public class World {
                         {
                             spikes[i].draw();
                             mario.isDead();
+                            break;
                         }
                     }
                 }

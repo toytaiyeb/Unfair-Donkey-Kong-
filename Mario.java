@@ -291,8 +291,13 @@ public class Mario {
     }
     public boolean spikesCollision(Spikes[] l) {
         for (int i = 0; i < l.length; i++) {
-            if(l[i].getX() - 0.015 < x && x < l[i].getX() + 0.015) {
-                if (l[i].getY() - 0.075 < y && y < l[i].getY() + 0.1) {
+           /* if(l[i].getX()+0.5==x-0.15 && l[i].getY()+0.5==y-0.15)
+            {
+                return true;
+            }*/
+
+            if(l[i].getX() - 0.020 < x && x < l[i].getX() + 0.020) {
+                if (l[i].getY() - 0.035 < y && y < l[i].getY() + 0.075) {
                     return true;
                 }
             }

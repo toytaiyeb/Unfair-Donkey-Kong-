@@ -258,7 +258,16 @@ public class World {
                             rightDir = 0;
                             climbing = false;
                             facing = false;
-
+                            direction = 2;
+                        }
+                        else if (!(mario.ladderCollision(ladders) &&
+                                !mario.floorCollision(floors)))
+                        {
+                            mario.moveLeft();
+                            leftDir++;
+                            rightDir = 0;
+                            climbing = false;
+                            facing = false;
                             direction = 2;
                         }
                     } 
@@ -279,8 +288,19 @@ public class World {
                             climbing = false;
                             facing = true;
                             direction = 1;
+                        }else if (!(mario.ladderCollision(ladders) &&
+                                !mario.floorCollision(floors)))
+                        {
+                            mario.moveRight();
+                            rightDir++;
+                            leftDir = 0;
+                            climbing = false;
+                            facing = true;
+                            direction = 1;
                         }
                     }
+                    //if mario is not in the ladder and on the floor
+
                     if (dir == 'w') {
                         //if mario is in ladder, move up ladder
                         if (mario.ladderCollision(ladders)) {

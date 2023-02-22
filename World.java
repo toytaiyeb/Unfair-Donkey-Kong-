@@ -103,10 +103,12 @@ public class  World {
 
 
             //Spikes spikes=new Spikes(0.35,0.210);
-            Spikes[] spikes=new Spikes[3];
+            Spikes[] spikes=new Spikes[4];
             spikes[0]=new Spikes(0.35,0.210);
             spikes[1]=new Spikes(0.7,0.66);
-            spikes[2]=new Spikes(0.75,0.725);
+            spikes[2]=new Spikes(0.75,0.810);
+            //spikes[3]=new Spikes(0.52, 0.660);
+            spikes[3]=new Spikes(0.55, 0.810);
 
 
 
@@ -159,14 +161,25 @@ public class  World {
                 for (int i = 0; i < spikes.length; i++)
                 {
                     //if(mario.getY()==spikes[i].getY() && mario.getX()==spikes[i].getX())
-                    if(mario.spikesCollision(spikes))
+                    if(mario.spikesCollision(spikes[0]))
                     {
-                        if(i <spikes.length)
-                        {
-                            spikes[i].draw();
+                            spikes[0].draw();
                             mario.isDead();
-                            break;
-                        }
+                    }
+                    if(mario.spikesCollision(spikes[1]))
+                    {
+                        spikes[1].draw();
+                        mario.isDead();
+                    }
+                    if(mario.spikesCollision(spikes[2]))
+                    {
+                        spikes[2].draw();
+                        mario.isDead();
+                    }
+                    if(mario.spikesCollision(spikes[3]))
+                    {
+                        spikes[3].draw();
+                        mario.isDead();
                     }
                 }
 
@@ -197,7 +210,7 @@ public class  World {
                 //if mario is above 0.35, use pikachu images
                 if (mario.getY() > 0.35)
                 {
-                    PennDraw.enableAnimation(60);
+                    PennDraw.enableAnimation(30);
                     if (direction == 1) {
                         mario.pDrawRight(rightDir);
                     } else if (direction == 2) {
@@ -223,7 +236,7 @@ public class  World {
                 mario.checkPosition();
                 if (mario.getY() > 0.525)
                 {
-                    PennDraw.enableAnimation(90);
+                    PennDraw.enableAnimation(30);
                     if (direction == 1) {
                         mario.pDrawRight(rightDir);
                     } else if (direction == 2) {

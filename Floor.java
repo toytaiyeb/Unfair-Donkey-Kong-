@@ -66,7 +66,7 @@ public class Floor {
     * @return n/a
     */
     public void draw() {
-        PennDraw.picture(x, y, "floor.png", 2 * halfWidth * 512,
+        PennDraw.picture(x, y, "newfloor.png", 2 * halfWidth * 512,
                          2 * halfHeight * 512);
     }
     

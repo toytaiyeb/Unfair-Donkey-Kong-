@@ -89,6 +89,8 @@ public class Floor {
                 barrel.getY() >= y && barrel.getX() <= x + halfWidth &&
                 barrel.getX() >= x - halfWidth);
     }
+
+
     
     //TESTING CODE
     public static void main(String[] args) {

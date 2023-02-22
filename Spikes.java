@@ -13,6 +13,8 @@ public class Spikes {
         this.y = y;
     }
 
+
+
     /* Description: draws ladder
      * @param n/a
      * @return n/a
@@ -36,4 +38,5 @@ public class Spikes {
     public double getX() {
         return x;
     }
+
 }

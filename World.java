@@ -40,6 +40,10 @@ public class World {
             if (PennDraw.hasNextKeyTyped())
                 c = PennDraw.nextKeyTyped();
         }
+
+
+
+
         //***************************************************************
         
         //begin playing background music immediately
@@ -88,20 +92,20 @@ public class World {
             //floors**********************************************************
             
             //initialize ladders**********************************************
-            Ladder[] ladders = new Ladder[6];
+            Ladder[] ladders = new Ladder[7];
             ladders[0] = new Ladder(0.45, 0.125);// Ground
             ladders[1] = new Ladder(0.7, 0.275);
             ladders[5] = new Ladder(0.24, 0.275);
             ladders[2] = new Ladder(0.3, 0.425);
             ladders[3] = new Ladder(0.6, 0.575);
-            ladders[4] = new Ladder(0.45, 0.725);//Top
+            ladders[4] = new Ladder(0.45, 0.725);
+            ladders[6] = new Ladder(0.75,0.725);//Top
 
 
             //Spikes spikes=new Spikes(0.35,0.210);
             Spikes[] spikes=new Spikes[2];
             spikes[0]=new Spikes(0.35,0.210);
-            spikes[1]=new Spikes(0.75,0.725);
-
+            spikes[1]=new Spikes(0.7,0.66);
 
 
 
@@ -140,11 +144,30 @@ public class World {
                 for (int i = 0; i < floors.length; i++) {
                     if (i < floors.length)
                         floors[i].draw();
+
+                }
+                for (int i = 0; i < ladders.length; i++) {
+
                     if (i < ladders.length)
                         ladders[i].draw();
-                    if(i <spikes.length)
-                        spikes[i].draw();
+
                 }
+
+
+                for (int i = 0; i < spikes.length; i++)
+                {
+                    //if(mario.getY()==spikes[i].getY() && mario.getX()==spikes[i].getX())
+                    if(mario.spikesCollision(spikes))
+                    {
+                        if(i <spikes.length)
+                        {
+                            spikes[i].draw();
+                            mario.isDead();
+                        }
+                    }
+                }
+
+
 
 
                 //draw donkey depending on what frame we are on using timer
@@ -220,21 +243,37 @@ public class World {
                     char dir = PennDraw.nextKeyTyped();
                     if (dir == 'a') {
                         //if is not in the ladder and on the floor move
-                        if (!(mario.ladderCollision(ladders) &&
-                              !mario.floorCollision(floors))) {
-                            mario.moveLeft();
+                        if (!(mario.ladderCollision(ladders)))
+                        {
+
+                             if(!(mario.floorCollision(floors)))
+                             {
+                                 mario.moveLefttAir();
+                             }
+                             else
+                             {
+                                 mario.moveLeft();
+                             }
                             leftDir++;
                             rightDir = 0;
                             climbing = false;
                             facing = false;
+
                             direction = 2;
                         }
                     } 
                     else if (dir == 'd') {
                         //if mario is not in the ladder and on the floor
-                        if (!(mario.ladderCollision(ladders) &&
-                              !mario.floorCollision(floors))) {
-                            mario.moveRight();
+                        if (!(mario.ladderCollision(ladders)))
+                             {
+                                 if(!(mario.floorCollision(floors)))
+                                 {
+                                     mario.moveRightAir();
+                                 }
+                                 else
+                                 {
+                                     mario.moveRight();
+                                 }
                             rightDir++;
                             leftDir = 0;
                             climbing = false;
@@ -257,7 +296,41 @@ public class World {
                             jumping = true;
                             mario.jump();
                         }
-                    } else if (dir == 's') {
+                    }
+                    //jump and move left once
+                /*    if (dir == 'w' && dir== 'a') {
+                        //if mario is in ladder, move up ladder
+                        if (mario.floorCollision(floors)) {
+                            StdAudio.play("jump.wav");
+                            climbing = false;
+                            jumping = true;
+                            mario.jump();
+                            mario.moveLefttAir();
+                            leftDir++;
+                            rightDir = 0;
+
+                            facing = false;
+
+                            direction = 2;
+                        }
+                    }
+                    if (dir == 'w' && dir== 'd') {
+                        //if mario is in ladder, move up ladder
+                        if (mario.floorCollision(floors)) {
+                            StdAudio.play("jump.wav");
+                            climbing = false;
+                            jumping = true;
+                            mario.jump();
+                            mario.moveRightAir();
+                            rightDir++;
+                            leftDir = 0;
+                            facing = true;
+                            direction = 1;
+
+                        }
+                    }
+*/
+                    else if (dir == 's') {
                         //if mario is in ladder and not on the floor, move down
                         if (mario.ladderCollision(ladders) &&
                             !mario.floorCollision(floors)) { 
@@ -303,7 +376,13 @@ public class World {
                 } else if (barrels.size() > 5) {
                     barrels.remove(0);
                 }
-                
+                //checks mario collision with spikes
+                /*if(mario.spikesCollision(spikes))
+                {
+                    mario.isDead();
+                }
+                */
+
                 //checks barrels collision with floors
                 int counter1 = 0;
                 while (counter1 < barrels.size()) {

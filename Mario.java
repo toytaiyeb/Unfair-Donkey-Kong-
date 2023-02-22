@@ -16,7 +16,8 @@ public class Mario {
     private double y;
     private double velX = 0.02;
     private double velY;
-    private double jumpVel = 0.012;
+   private double jumpVel = 0.012;
+
     private double accelG = 0.01;
     private static final double halfHeight = 0.025;
     private static final double halfWidth = 0.01;
@@ -77,6 +78,12 @@ public class Mario {
       */
     public void moveRight() {
         x += velX;
+    }
+    public void moveRightAir() {
+        x += velX*4;
+    }
+    public void moveLefttAir() {
+        x -= velX*4;
     }
     
     /** Description: decreases mario's x by velX
@@ -220,7 +227,7 @@ public class Mario {
       * @return n/a
       */
     public void jump() {
-        velY = jumpVel; 
+        velY = jumpVel;
     }
     
     /** Description: updates marios y vel for jumping feature
@@ -282,6 +289,17 @@ public class Mario {
         }
         return false;
     }
+    public boolean spikesCollision(Spikes[] l) {
+        for (int i = 0; i < l.length; i++) {
+            if(l[i].getX() - 0.015 < x && x < l[i].getX() + 0.015) {
+                if (l[i].getY() - 0.075 < y && y < l[i].getY() + 0.1) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     
     /* Description: Moves mario up
      * @param n/a
@@ -310,6 +328,10 @@ public class Mario {
             }
         }
         return false;
+    }
+    public void isDead()
+    {
+        isAlive=false;
     }
     
     /* Description: Checks if mario has collided with any of the barrels and if

@@ -111,6 +111,7 @@ public class  World {
             spikes[3]=new Spikes(0.55, 0.810);
 
             Fakespike fakespike=new Fakespike(0.55,0.810);
+            FloorHole floorHole=new FloorHole(0.55,0.2);
 
 
 
@@ -185,6 +186,36 @@ public class  World {
                         mario.isDead();
                     }
                 }
+                mario.checkPosition();
+                if(mario.floorHoleCollision(floorHole))
+                {
+
+                    mario.setY(mario.getY()-.05);
+
+                    floorHole.draw();
+
+
+
+                }
+
+                    //if(mario.getY()==spikes[i].getY() && mario.getX()==spikes[i].getX())
+
+//                    if(mario.floorHoleCollision(spikes[1]))
+//                    {
+//                        spikes[1].draw();
+//                        mario.isDead();
+//                    }
+//                    if(mario.floorHoleCollision(spikes[2]))
+//                    {
+//                        spikes[2].draw();
+//                        mario.isDead();
+//                    }
+//                    if(mario.floorHoleCollision(spikes[3]))
+//                    {
+//                        spikes[3].draw();
+//                        mario.isDead();
+//                    }
+
 
 
 
@@ -206,6 +237,7 @@ public class  World {
                 
                 //draw peach
                 peach.draw();
+
                 
                 //make sure mario is in an acceptable position before drawing
                 mario.checkPosition();

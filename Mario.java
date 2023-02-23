@@ -316,6 +316,17 @@ public class Mario {
         return false;
     }
 
+    public boolean floorHoleCollision(FloorHole l) {
+
+
+        if(l.getX() - 0.020 < x && x < l.getX() + 0.020) {
+            if (l.getY() - 0.035 < y && y < l.getY() + 0.075) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     
     /* Description: Moves mario up
      * @param n/a

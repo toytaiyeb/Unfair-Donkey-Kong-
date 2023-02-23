@@ -33,6 +33,7 @@ public class  World {
        // PennDraw.text(0.5, 0.23, "third floor up.");
         PennDraw.setFontBold();
         PennDraw.text(0.5, 0.1, "Press 'y' to start the game");
+        int fps=30;
         
         //waits until user presses 'y' to begin the game
         char c = 0;
@@ -103,15 +104,19 @@ public class  World {
 
 
             //Spikes spikes=new Spikes(0.35,0.210);
-            Spikes[] spikes=new Spikes[4];
+            Spikes[] spikes=new Spikes[5];
             spikes[0]=new Spikes(0.35,0.210);
+            spikes[4]=new Spikes(.45,0.36);
             spikes[1]=new Spikes(0.7,0.66);
             spikes[2]=new Spikes(0.75,0.810);
             //spikes[3]=new Spikes(0.52, 0.660);
             spikes[3]=new Spikes(0.55, 0.810);
 
-            Fakespike fakespike=new Fakespike(0.55,0.810);
-            FloorHole floorHole=new FloorHole(0.55,0.2);
+            Fakespike fakespike1=new Fakespike(0.55,0.810);
+            Fakespike fakespike2=new Fakespike(0.6,0.509);
+
+            FloorHole floorHole1=new FloorHole(0.55,0.2);
+            FloorHole floorHole2=new FloorHole(0.5,0.65);
 
 
 
@@ -136,7 +141,7 @@ public class  World {
             //CHANGE ANIMATION SPEED FPS IF NEE
 
 
-            PennDraw.enableAnimation(30);
+            PennDraw.enableAnimation(fps);
 
             boolean hasWon = false; //create a boolean to say mario hasn't won
             
@@ -185,18 +190,32 @@ public class  World {
                         spikes[3].draw();
                         mario.isDead();
                     }
+                    if(mario.spikesCollision(spikes[4]))
+                    {
+                        spikes[4].draw();
+                        mario.isDead();
+                    }
                 }
                 mario.checkPosition();
-                if(mario.floorHoleCollision(floorHole))
+                if(mario.floorHoleCollision(floorHole1))
                 {
 
                     mario.setY(mario.getY()-.05);
 
-                    floorHole.draw();
+                    floorHole1.draw();
 
 
 
                 }
+                if(mario.floorHoleCollision(floorHole2)) {
+
+                    mario.setY(mario.getY() - .05);
+
+                    floorHole1.draw();
+
+                }
+                fakespike1.draw();
+                fakespike2.draw();
 
                     //if(mario.getY()==spikes[i].getY() && mario.getX()==spikes[i].getX())
 
@@ -245,7 +264,7 @@ public class  World {
                 //if mario is above 0.35, use pikachu images
                 if (mario.getY() > 0.35)
                 {
-                    PennDraw.enableAnimation(60);
+                    PennDraw.enableAnimation(fps);
                     if (direction == 1) {
                         mario.pDrawRight(rightDir);
                     } else if (direction == 2) {
@@ -271,7 +290,7 @@ public class  World {
                 mario.checkPosition();
                 if (mario.getY() > 0.525)
                 {
-                    PennDraw.enableAnimation(90);
+                    PennDraw.enableAnimation(fps);
                     if (direction == 1) {
                         mario.pDrawRight(rightDir);
                     } else if (direction == 2) {

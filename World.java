@@ -22,15 +22,15 @@ public class  World {
         PennDraw.clear();
         PennDraw.setFontSize(15);
         PennDraw.setPenColor(PennDraw.BLACK);
-        PennDraw.text(0.5, 0.8, "Instructions:");
+        PennDraw.text(0.5, 0.8, "UnFair Donkey Kong");
         PennDraw.text(0.5, 0.7, "use 'a' to move left, 'd' for right,");
         PennDraw.text(0.5, 0.6, "'w' to jump, and 's' to move down.");
         PennDraw.text(0.5, 0.5, "Climb the ladders to get to Princess Peach " + 
                       "to win");
         PennDraw.text(0.5, 0.4, "Avoid the barrels - you lose if one hits you");
-        PennDraw.text(0.5, 0.27, "Press 'f' to activate the special power up " +
-                      "once you reach the");
-        PennDraw.text(0.5, 0.23, "third floor up.");
+       // PennDraw.text(0.5, 0.27, "Press 'f' to activate the special power up " +
+                   //   "once you reach the");
+       // PennDraw.text(0.5, 0.23, "third floor up.");
         PennDraw.setFontBold();
         PennDraw.text(0.5, 0.1, "Press 'y' to start the game");
         
@@ -109,6 +109,9 @@ public class  World {
             spikes[2]=new Spikes(0.75,0.810);
             //spikes[3]=new Spikes(0.52, 0.660);
             spikes[3]=new Spikes(0.55, 0.810);
+
+            Fakespike fakespike=new Fakespike(0.55,0.810);
+
 
 
 

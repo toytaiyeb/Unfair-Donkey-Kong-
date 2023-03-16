@@ -8,11 +8,10 @@
   *  LinkedList.java, Mario.java, Peach.java, PennDraw.java, StdAudio.java,
   *  image files, audio files
   *
-  *  Runs the world of Donkey Kong Arcade. Runs instructions, then the game, 
+  *  Runs the world of Unfair Donkey Kong Arcade. Runs instructions, then the game,
   *  then a play-again feature.
   * 
-  * Authors: Ethan Terner, eterner, 206
-  *          Max Grove, maxgrove, 205
+  *
   *
   ***************************************************************************/
 public class  World {
@@ -41,10 +40,6 @@ public class  World {
             if (PennDraw.hasNextKeyTyped())
                 c = PennDraw.nextKeyTyped();
         }
-
-
-
-
         //***************************************************************
         
         //begin playing background music immediately
